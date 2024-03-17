@@ -1,0 +1,31 @@
+:root{
+    --bg: rgb(98, 235, 155);
+    --text: rgb(255, 255, 255);
+    --btn : rgb(255, 255, 255);
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--text)
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+*{
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: "100%";
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
