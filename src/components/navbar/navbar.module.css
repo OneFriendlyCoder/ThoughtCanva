@@ -2,16 +2,11 @@
     display: flex;
     align-self: center;
     justify-content: space-between;
+    height: 100px;
 }
 
 .logo{
     font-size: 70px;
     font-weight: bold;
-    
 }
 
-.links{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
