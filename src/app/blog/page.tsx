@@ -1,7 +1,12 @@
+import PostCard from "@/components/postCard/postCard"
 const Blog = () => {
     return (
         <>
-            <h1>Blog</h1>
+            <div>
+                <PostCard/>
+                <PostCard/>
+                <PostCard/>
+            </div>
         </>
     )
 }
