@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 const About = () =>{
     return (
         <>
-        <h1>About</h1>
+        <Image src="/tc3_rbg.png" alt="" width={500} height={500}/>
         </>
     )
 }

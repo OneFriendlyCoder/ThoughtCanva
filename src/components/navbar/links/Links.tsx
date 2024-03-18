@@ -2,10 +2,9 @@
 
 import styles from "./links.module.css"
 import NavLink from "./navLinks/navLink"
+import { useState } from "react"
 
-
-const Links = () =>{
-    const links = [{
+const links = [{
         title:"Homepage",
         path:"/"
     },
@@ -23,22 +22,34 @@ const Links = () =>{
     }
 ]
 
+const Links = () => {
+    const [open, setOpen] = useState<boolean>(false);
     const session = true;
     const isAdmin = true;
 
 return(
-    <div className={styles.links}>
-        {links.map((link)=>(
-            <NavLink item={link} key={link.title}></NavLink> 
-        ))}{
-            session ? (
-            <>
-                {isAdmin && <NavLink item={{title:"Admin", path:"/admin"}}/>} 
-                <button className={styles.logout}>Logout</button>
-            </>
-            ) : (
-                <NavLink item={{title:"Login", path:"/login"}}></NavLink>
-            )
+    <div className={styles.container}>
+        <div className={styles.links}>
+            {links.map((link)=>(
+                <NavLink item={link} key={link.title}></NavLink> 
+            ))}{
+                session ? (
+                <>
+                    {isAdmin && <NavLink item={{title:"Admin", path:"/admin"}}/>} 
+                    <button className={styles.logout}>Logout</button>
+                </>
+                ) : (
+                    <NavLink item={{title:"Login", path:"/login"}}></NavLink>
+                )
+            }
+        </div>
+        <button className={styles.menuButton} onClick={()=>setOpen(prev=>!prev)}>Menu</button>
+        {
+            open && <div className={styles.mobileLinks}>
+                {links.map((link)=>(
+                    <NavLink item={link} key={link.title}/>
+                ))}
+            </div>
         }
     </div>
 )
