@@ -1,26 +1,30 @@
+import { getPost } from "@/app/lib/data";
+import PostUser from "@/components/postUser/postUser";
 import Image from "next/image";
+import { Suspense } from "react";
 
-const SinglePost = () => {
+const SinglePost = async ({params}:{params: any}) => {
+    const {slug} = params;
+    const post = await getPost(slug);
     return (
         <div>
             <div>
                     {/* post images is added here */}
             </div>
             <div>
-                <h1>Title</h1>
+                {<h1>{post.title}</h1>}
                     <div>
                         {/* Author profile images is added here */}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {}
+                    </Suspense>
                     <div>
-                        <span>Author</span>
-                        <span>Ram kumar</span>
-                    </div>
-                    <div>
-                        <span>Published</span>
-                        <span>10.10.1100</span>
+                        <div>{post.desc}</div>
+                        <div>{}</div>
                     </div>
                 </div>
                 <div>
-                    <p> Here goes the description of the blog</p>
+                    <p></p>
                 </div>
             </div>
         </div>

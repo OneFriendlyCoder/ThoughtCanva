@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-const PostCard = () => {
+const PostCard = ({post}:{post:{userId:number;slug:string;title:string;desc:string}}) => {
 
     return(
         <>
@@ -11,9 +11,9 @@ const PostCard = () => {
                 </div>
                 <span />
                 <div>
-                    <h1>Title</h1>
-                    <p>Description</p>
-                    <Link href="/blog/post">Read More</Link>
+                    <h1>{post.title}</h1>
+                    <p>{post.desc}</p>
+                    <Link href={`/blog/${post.slug}`}>Read More</Link>
                 </div>
             </div>
         </div>
